@@ -1,6 +1,7 @@
 # TLX Predictor
 A lightweight userscript that predicts live rating changes on the competitive programming platform [TLX](https://tlx.toki.id)
 
+![Look of TLX Predictor](img/look.png)
 ## Installing
 1. Install a userscript extension [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/)
 2. Install **TLX Predictor** from:
