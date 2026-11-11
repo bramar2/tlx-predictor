@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         tlx-predictor
 // @namespace    https://github.com/bramar2
-// @version      1.1
+// @version      1.2
 // @description  Predict live rating changes in TLX.
 // @author       bramar2
 // @license      MIT
 // @match        https://tlx.toki.id/*
+// @updateURL    https://raw.githubusercontent.com/bramar2/tlx-predictor/refs/heads/main/userscript/script.js
+// @downloadURL  https://raw.githubusercontent.com/bramar2/tlx-predictor/refs/heads/main/userscript/script.js
 // @run-at       document-start
 // @grant        GM.getValue
 // @grant        GM.setValue
