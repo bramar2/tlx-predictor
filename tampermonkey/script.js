@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         tlx-predictor
 // @namespace    https://github.com/bramar2
-// @version      1.0
+// @version      1.1
 // @description  Predict live rating changes in TLX.
 // @author       bramar2
+// @license      MIT
 // @match        https://tlx.toki.id/*
+// @run-at       document-start
 // @grant        GM.getValue
 // @grant        GM.setValue
 // @grant        unsafeWindow
@@ -40,14 +42,14 @@
 
     async function processScoreboard(contestJID, data) {
         const range = await GM.getValue(contestJID, undefined);
-        
+
         if(range) {
             deltas = undefined;
             const jidToUsername = new Map();
             const publicRatingMap = new Map();
             const hiddenRatingMap = new Map();
             const unrated = new Set();
-            
+
             for(const [userJID, profile] of Object.entries(data.profilesMap)) {
                 jidToUsername.set(userJID, profile.username.toLowerCase());
                 if(profile.rating) {
@@ -167,7 +169,7 @@
     const ofetch = unsafeWindow.fetch;
     unsafeWindow.fetch = async function(...args) {
         const response = await ofetch.apply(this, args);
-        
+
         const descriptionMatch = response.url.match(DESCRIPTION_REGEX);
         if(descriptionMatch) {
             response.clone().json().then((data) => processDescription(descriptionMatch[1], data));
@@ -182,6 +184,6 @@
 
     setTimeout(updateScoreboard, 1000);
     setTimeout(updateScoreboard, 2000);
-    setTimeout(updateScoreboard, 3000);
+    setTimeout(updateScoreboard, 4000);
     setInterval(updateScoreboard, 5000);
 })();
